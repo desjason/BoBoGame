@@ -51,6 +51,7 @@
 {
     float xPos = 12000*x/(x*x+y*y);
     float yPos = 12000*y/(x*x+y*y);
+    CCLOG(@"%f %f",xPos,yPos);
     CCMoveTo* mo = [CCMoveTo actionWithDuration:2 position:CGPointMake(sprite.position.x+xPos, sprite.position.y+yPos)];
     //CCMoveTo* mo1 = [CCMoveTo actionWithDuration:2 position:CGPointMake(0, sprite.position.y+y)];
     //CCSequence* sequence = [CCSequence actions:mo,mo1, nil];

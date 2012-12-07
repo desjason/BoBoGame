@@ -36,14 +36,20 @@
 									reason:@"unhandled enemy type"
 								  userInfo:nil];
 	}
-    //CGRect rect1 = CGRectMake(200, 200, 400, 400);
+    //CGRect rect1 = CGRectMake(500, 500, 700, 700);
 	self = [super initWithFile:enemyFrameName];
 	if (self)
 	{		
 		// enemies start invisible
 		self.visible = NO;
-		
-		[self initSpawnFrequency];
+		/*ccTexParams params = {
+            GL_LINEAR,
+            GL_LINEAR,
+            GL_REPEAT,
+            GL_REPEAT
+        };
+        [self.texture setTexParameters:&params];*/
+		//[self initSpawnFrequency];
 	}
 	
 	return self;
@@ -86,7 +92,7 @@ static NSMutableArray* spawnFrequency = nil;
 	// Select a spawn location just outside the right side of the screen, with random y position
     CGSize screenSize = [CCDirector sharedDirector].winSize;
 	CGSize spriteSize = self.contentSize;
-    xPos = updateCount;
+    xPos = screenSize.width + 100;
     yPos = screenSize.height * 0.3;
     //CCLOG(@"%  %di \n",xPos,yPos);
     //CGPoint point = [self.parent convertToWorldSpace:CGPointMake(xPos, yPos)];
@@ -96,4 +102,5 @@ static NSMutableArray* spawnFrequency = nil;
 	self.visible = YES;
 
 }
+
 @end

@@ -58,11 +58,14 @@
 }
 -(BOOL) isPersonAndEnemyColliding:(CGRect)rect
 {
-    return NO;
+    return CGRectIntersectsRect([self boundingBox], rect);
+    
+
 }
 -(BOOL) dispear
 {
     self.visible = NO;
+    return NO;
 }
 -(void) dealloc
 {

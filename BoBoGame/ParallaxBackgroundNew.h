@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "EnemyCache.h"
-
+#import "LeverFinishingLine.h"
+#import "Enemy.h"
 @interface ParallaxBackgroundNew : CCSprite {
     
 }

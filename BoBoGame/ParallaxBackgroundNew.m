@@ -18,19 +18,28 @@
 }
 -(id)backGroundWithImage
 {
-    CGRect rectRepeat = CGRectMake(-5000, -5000, 5000, 5000);
-    if (self = [super initWithFile:@"bb.png" rect:rectRepeat]) {
-        CGSize screenSize = [CCDirector sharedDirector].winSize;
-        self.position = CGPointMake(screenSize.width, screenSize.height);
-        ccTexParams params = {
+    //CGRect rectRepeat = CGRectMake(-5000, -5000, 5000, 5000);
+    if (self = [super initWithFile:@"bbb.png" ]) {
+        //CGSize screenSize = [CCDirector sharedDirector].winSize;
+        //self.position = CGPointMake(screenSize.width, screenSize.height);
+        /*ccTexParams params = {
             GL_LINEAR,
             GL_LINEAR,
             GL_REPEAT,
             GL_REPEAT
-        };
+        };*/
         //EnemyCache* enemy = [EnemyCache node];
         //[self addChild:enemy];
-        [self.texture setTexParameters:&params];
+        //CGRect rect = CGRectMake(100, 100, 228, 228);
+        
+        //[self.texture setTexParameters:&params];
+        //EnemyCache* enemy = [EnemyCache node];
+        //enemy.visible = YES;
+        //[self addChild:enemy];
+        //LeverFinishingLine* line = [LeverFinishingLine finishingLine];
+        //[self addChild:line];
+        //line.position = CGPointMake(screenSize.width/2, screenSize.height/2);
+        
         [self scheduleUpdate];
         
     }
@@ -44,12 +53,14 @@
 }
 -(void)move:(float)x :(float)y
 {
-    float xPos = 12000*x/(x*x+y*y);
-    float yPos = 12000*y/(x*x+y*y);
+    double xPos = 12000*x/(x*x+y*y);
+    double yPos = 12000*y/(x*x+y*y);
     CCMoveTo* mo = [CCMoveTo actionWithDuration:2 position:CGPointMake(self.position.x+xPos, self.position.y+yPos)];
     //CCMoveTo* mo1 = [CCMoveTo actionWithDuration:2 position:CGPointMake(0, sprite.position.y+y)];
     //CCSequence* sequence = [CCSequence actions:mo,mo1, nil];
     CCEaseInOut* ease = [CCEaseInOut actionWithAction:mo rate:2];
     [self runAction:ease];
+    CCLOG(@"%f %f",xPos,yPos);
+    CCLOG(@"%f %f",self.position.x,self.position.y);
 }
 @end
